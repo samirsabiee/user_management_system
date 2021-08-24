@@ -24,9 +24,9 @@ class HomeController extends Controller
      */
     public function index(): Renderable
     {
-        Role::find(1)->givePermissionTo('delete user');
+        /*Role::find(1)->givePermissionTo('delete user');
         auth()->user()->giveRoleTo('admin');
-        dd(auth()->user()->can('add user'));
+        dd(auth()->user()->can('add user'));*/
         return view('home');
     }
 }
