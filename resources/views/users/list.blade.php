@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex flex-row">
         <div class="col-2 px-3">
-            <div class="card card-header">Users List</div>
+            @include('partials.panel-menu')
         </div>
         <div class="col">
             <div class="card">
@@ -23,16 +23,16 @@
                         </thead>
                         <tbody>
                         @forelse($users as $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                @foreach($user->roles as $role)
-                                    <span class="badge badge-dark p-2">{{ $role->name }}</span>
-                                @endforeach
-                            </td>
-                            <td><a href="#">Edit</a></td>
-                        </tr>
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    @foreach($user->roles as $role)
+                                        <span class="badge badge-dark p-2">{{ $role->name }}</span>
+                                    @endforeach
+                                </td>
+                                <td><a href="{{ route('users.edit',$user->id) }}">Edit</a></td>
+                            </tr>
                         @empty
                             <p>No User Registered!</p>
                         @endforelse
