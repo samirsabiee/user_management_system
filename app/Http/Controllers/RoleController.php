@@ -35,10 +35,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request): RedirectResponse
     {
-        Role::create([
-            'name' => $request->name,
-            'persian_name' => $request->persian_name
-        ]);
+        Role::create($request->only(['name', 'persian_name']));
         return back()->with('success', true);
     }
 
