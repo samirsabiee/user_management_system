@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->persian_name }}</td>
-                                <td><a href="#">Edit</a></td>
+                                <td><a href="{{ route('roles.edit', $role->id) }}">Edit</a></td>
                             </tr>
                         @empty
                             <p>No Role Registered!</p>
